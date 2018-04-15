@@ -1,9 +1,13 @@
 require 'rspec'
+require 'test/unit/assertions'
+require 'test/unit'
 include GenericHelper
+include SignHelper
 
 describe 'Signup : ' do
 
   it 'Should allow user to Signup' do
+=begin
     #Step 1 - Enter username
     wait_true(20) {@driver.find_element(:id, 'input-email_or_phone').displayed? }
     @driver.find_element(:id, "input-email_or_phone").send_keys("htest#{i = random_email}@abc.com")
@@ -22,6 +26,15 @@ describe 'Signup : ' do
 
 
     sleep 10
+=end
+    #email = random_email
+    email = "ads.com"
+    Signup(email)
+    wait_true(20) {@driver.find_element(:id, 'off-canvas-menu-landing').displayed?}
+    expect(@driver.find_element(:id, 'off-canvas-menu-landing').text).to eq("Home")
+    #assert_true {verifySuccess() == true}
+
+
   end
 
 

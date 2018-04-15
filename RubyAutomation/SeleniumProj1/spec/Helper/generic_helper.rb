@@ -7,8 +7,13 @@ module GenericHelper
 
   def random_email
     i = rand(300)
-  return i
+    rand_email = "htest#{rand(300)}@abc.com"
+    return rand_email
   end
 
+  def random_account
+    rand_acc = rand(100000...1000000000)
+    return rand_acc
+  end
 
 end
